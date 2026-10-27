@@ -1,0 +1,81 @@
+var e={id:`audiovisualizer`,title:`AudioVisualizer`,year:`2026`,order:0,status:`finished`,client:null,roles:{gamedev:7,frontend:7,motion:9,audioreactive:10},kicker:{en:`Real-time · TouchDesigner · GLSL`,cs:`Real-time · TouchDesigner · GLSL`},headline:{en:`Eighteen GPU worlds that find the drop themselves`,cs:`Osmnáct GPU světů, které si drop najdou samy`},summary:{en:`A live music visualizer built in TouchDesigner: audio from a file or live input becomes a 256-bin spectrum, low/mid/high bands and kick detection that drive 18 GPU-shaded styles at 1920×1080, from a hyperbolic Circle Limit floor and a Gothic rose window to 4,000 strange-attractor threads and a 65,000-domino cascade. An auto director spots breakdowns, build-ups and drops and switches style, camera and colour by itself, while Kinect gestures, MIDI and a phone panel let a performer steer it live. Its finished output is Anthropology, a five-reel vertical series (1080×1920, 60 fps) rendered with the same system.`,cs:`Živý hudební vizualizér v TouchDesigneru: zvuk ze souboru nebo ze živého vstupu analyzuje (spektrum s 256 pásmy, úrovně basů, středů a výšek, detekce kicku) a výsledkem pohání 18 stylů renderovaných shadery na GPU v rozlišení 1920×1080 – od hyperbolické podlahy Circle Limit a gotické rozety po 4 000 vláken podivných atraktorů a kaskádu 65 000 kostek domina. Automatický režisér sám pozná breakdown, build-up i drop a přepíná styly, kameru i barvy, zatímco gesta přes Kinect, MIDI a ovládací panel v telefonu umožňují performerovi řídit obraz naživo. Hotovým výstupem je Anthropology, série pěti vertikálních reels (1080×1920, 60 fps) vyrenderovaná stejným systémem.`},tldr:{en:`A TouchDesigner music visualizer: 18 GLSL worlds follow spectrum and kick; an auto director spots drops and switches style. Solo concept and direction, code written with AI agents; result: five vertical reels.`,cs:`Hudební vizualizér v TouchDesigneru: 18 GLSL světů reaguje na spektrum a kick, automatický režisér pozná drop a přepne styl. Autorský koncept a vedení, kód psaný s AI agenty; výsledek: pět vertikálních reels.`},role:{en:`Solo project: concept, art direction and technical direction; code written with AI coding agents`,cs:`Samostatný projekt: koncept, art direction a technické vedení; kód vznikal s pomocí AI agentů pro programování`},highlights:[{en:`Code-first TouchDesigner: Python build scripts generate the entire operator network (the .toe file is only a bootstrap) and rebuilds keep control values; a single params.json (258 controls) drives both TouchDesigner's parameters and the auto-built phone UI.`,cs:`TouchDesigner jako kód: celou síť operátorů generují build skripty v Pythonu (soubor .toe slouží jen jako zavaděč) a nové sestavení zachová nastavené hodnoty; jediný params.json (258 ovladačů) řídí parametry v TouchDesigneru i automaticky generované rozhraní v telefonu.`},{en:`About 15,300 lines of GLSL in 96 shader files, built on exact maths: a hyperbolic {p,q} tiling where every kick step is an exact symmetry, an endless Penrose zoom, Chladni figures picked from a 4096-point FFT and 4,000 RK4-integrated attractor threads with a live Lyapunov verdict; five offline Python tests verify the maths without TouchDesigner.`,cs:`Zhruba 15 300 řádků GLSL v 96 shaderových souborech postavených na přesné matematice: hyperbolické {p,q} dláždění, v němž je každý posun na kick přesnou symetrií, nekonečný zoom Penroseova dláždění, Chladniho obrazce vybírané podle 4096bodové FFT a 4 000 vláken podivných atraktorů integrovaných metodou RK4 s živým výpočtem Ljapunovova exponentu; matematiku ověřuje pět offline testů v Pythonu bez TouchDesigneru.`},{en:`Music-structure logic: kick-based tempo tracking with a flywheel that keeps time through breaks, and an auto director that detects breakdowns, build-ups and drops, then switches style, fires a flash, cuts the beat-driven camera and shifts colour.`,cs:`Rozpoznávání hudební struktury: odhad tempa z kicků se „setrvačníkem“, který drží rytmus i během pauz, a automatický režisér, který pozná breakdown, build-up i drop a podle toho přepne styl, spustí záblesk, přestřihne záběr rytmické kamery a změní barevnost.`},{en:`Local GPU AI lyric pipeline in a separate WebSocket worker: Demucs isolates the vocals and faster-whisper large-v3-turbo returns word timestamps (about 5 s for a 3-minute song) for kinetic typography; live recognition runs about 1 s behind the singer.`,cs:`Lokální AI pipeline pro texty písní na GPU v samostatném WebSocket workeru: Demucs oddělí vokál a faster-whisper large-v3-turbo vrátí časování jednotlivých slov (asi 5 s na tříminutovou skladbu) pro kinetickou typografii; živé rozpoznávání se za zpěvem opožďuje jen asi o 1 s.`},{en:`Built for stage and delivery: Kinect v1 body control (gestures plus silhouette compositing), MIDI learn with soft takeover, NVENC 1080p60 recording and background 9:16 / 1:1 / GIF exports – the pipeline behind the five Anthropology reels, each in a clean and a text-hook version.`,cs:`Připraveno na pódium i publikaci: ovládání tělem přes Kinect v1 (gesta a vkládání siluety do obrazu), MIDI learn se soft takeoverem, záznam přes NVENC v 1080p60 a exporty do 9:16, 1:1 a GIF na pozadí – právě touto cestou vzniklo pět reels série Anthropology, každý v čisté verzi a ve verzi s textovým hookem.`}],pitch:{gamedev:{en:`Proves I can build real-time GPU scenes end to end: custom GLSL shading, a 65,000-domino cascade, a beat-driven camera rig and live Kinect and MIDI input, all generated from code with the core maths tested offline.`,cs:`Dokazuje, že umím postavit real-time GPU scény od začátku do konce: vlastní GLSL shading, kaskádu 65 000 kostek domina, rytmický kamerový rig a živý vstup z Kinectu a MIDI – vše generované z kódu a s klíčovou matematikou ověřenou offline testy.`},frontend:{en:`Shows I can ship a real-time web UI with no framework: a vanilla-JS phone panel built from a 258-control schema and synced both ways over WebSocket with echo suppression, plus a live preview stream, MIDI learn and a mock server for backend-free development.`,cs:`Ukazuje, že umím dodat real-time webové rozhraní bez frameworku: panel do telefonu ve vanilla JS sestavený ze schématu 258 ovladačů a obousměrně synchronizovaný přes WebSocket s filtrováním ozvěn, k tomu živý náhled obrazu, MIDI learn a mock server pro vývoj bez backendu.`},motion:{en:`Shows I turn a system into finished content: a five-reel vertical series whose cuts, flashes and camera moves follow the track's structure, delivered in clean and text-hook versions ready for social.`,cs:`Ukazuje, že ze systému umím udělat hotový obsah: sérii pěti vertikálních reels, v níž střihy, záblesky i pohyby kamery sledují stavbu skladby, dodanou v čisté verzi i ve verzi s textovým hookem pro sociální sítě.`},audioreactive:{en:`Goes far beyond FFT bars: tempo tracking, drop and build-up detection, an automatic director and AI-timed lyrics steer 18 shader worlds live, from a file or a live input.`,cs:`Jde daleko za FFT sloupečky: sledování tempa, detekce dropů a build-upů, automatický režisér a texty časované pomocí AI řídí naživo 18 shaderových světů, ze souboru i ze živého vstupu.`}},tools:[`touchdesigner`,`glsl`,`python`,`javascript`,`websocket`,`html-css`,`demucs`,`whisper`,`kinect`,`midi`,`ffmpeg`,`depth-anything`],flow:[{from:`python`,to:`touchdesigner`,label:{en:`generates the operator network`,cs:`generuje síť operátorů`}},{from:`touchdesigner`,to:`glsl`,label:{en:`spectrum, bands and kick as uniforms`,cs:`spektrum, pásma a kick jako uniformy`}},{from:`demucs`,to:`whisper`,label:{en:`isolated vocal stem`,cs:`oddělená vokální stopa`}},{from:`whisper`,to:`touchdesigner`,label:{en:`word timestamps for kinetic lyrics`,cs:`časování slov pro kinetické texty`}},{from:`touchdesigner`,to:`javascript`,label:{en:`live levels and the control schema over WebSocket`,cs:`živé úrovně a schéma ovladačů přes WebSocket`}},{from:`touchdesigner`,to:`ffmpeg`,label:{en:`NVENC recordings to 9:16 reels via PyAV`,cs:`NVENC záznamy převedené přes PyAV na 9:16 reels`}}],media:{aspect:`9:16`,poster:`media/audiovisualizer/poster.webp`,loop:`media/audiovisualizer/loop.mp4`,full:`media/audiovisualizer/full.mp4`,gallery:[{src:`media/audiovisualizer/g1.webp`,aspect:`4:5`,caption:{en:`Six of the eighteen worlds as they appear in the Anthropology reels: Indra's Pearls, Rose Window, Penrose Inlay, Circle Limit, Galaxy and Domino Cascade.`,cs:`Šest z osmnácti světů tak, jak se objevují v sérii Anthropology: Indra's Pearls, Rose Window, Penrose Inlay, Circle Limit, Galaxy a Domino Cascade.`}},{src:`media/audiovisualizer/g2.webp`,aspect:`16:9`,caption:{en:`The phone control panel (Perform, Look and Audio tabs), built from params.json; Look shows only the controls of the current style. Captured from the project's mock server.`,cs:`Ovládací panel v telefonu (záložky Perform, Look a Audio) sestavený z params.json; záložka Look zobrazuje jen ovladače aktuálního stylu. Pořízeno s mock serverem projektu.`}},{src:`media/audiovisualizer/g3.webp`,aspect:`16:9`,caption:{en:`16 of the 18 styles as panel tiles: ornament and science scenes in the top rows, 3D scenes below, then Ring, Particles, Bars and the Art Slideshow.`,cs:`16 z 18 stylů jako dlaždice z panelu: nahoře ornamentální a vědecké scény, pod nimi 3D scény a dole Ring, Particles, Bars a Art Slideshow.`}},{src:`media/audiovisualizer/g4.webp`,aspect:`16:9`,caption:{en:`Effect shaders over the Galaxy style in reel 02: Leonardo Ink before the drop, Gold Relief on it, Gold Engraving later in the track.`,cs:`Efektové shadery nad stylem Galaxy v reelu 02: Leonardo Ink před dropem, Gold Relief na dropu a Gold Engraving později ve skladbě.`}}]},audio:`muted`,credits:[{en:`Reels set to 'Anthropology' by Vladimir Cauchemar – audio removed for licensing`,cs:`Reels jsou nastříhané na skladbu „Anthropology“ od Vladimira Cauchemara – zvuk byl z licenčních důvodů odstraněn`},{en:`Art Slideshow inspired by uisato's work for Max Cooper; 3D Splats mode after Gemos_Dodo's MLSharp-TD-Bridge; Frequency Fields after Pablo Torri's tutorial`,cs:`Art Slideshow inspirovaný prací autora uisato pro Maxe Coopera; režim 3D Splats podle MLSharp-TD-Bridge od autora Gemos_Dodo; Frequency Fields podle tutoriálu Pabla Torriho`},{en:`Circle Limit inspired by M. C. Escher's Circle Limit prints, with strapwork after Hankin's Islamic star patterns`,cs:`Circle Limit inspirovaný grafikami M. C. Eschera z cyklu Circle Limit, proplétaný ornament podle Hankinových islámských hvězdicových vzorů`},{en:`Paintings on the domino faces and in the Art Slideshow are public-domain works from Wikimedia Commons`,cs:`Malby na kostkách domina a v Art Slideshow jsou volná díla (public domain) z Wikimedia Commons`},{en:`Depth maps for the 3D Splats mode generated with Depth Anything V2 (Large model, CC BY-NC 4.0)`,cs:`Hloubkové mapy pro režim 3D Splats vytvořené modelem Depth Anything V2 (Large, licence CC BY-NC 4.0)`}],code:[{title:{en:`Folding every pixel into the hyperbolic tiling`,cs:`Skládání každého pixelu do hyperbolického dláždění`},lang:`glsl`,file:`td/shaders/circle_tiling.glsl`,snippet:`	float rho2 = rho * rho;
+	for (int i = 0; i < 24; i++) {
+		float ang = atan(z.y, z.x);
+		float k = floor(ang / sect);
+		ang -= k * sect;
+		vec2 r = vec2(cos(k * sect), -sin(k * sect));
+		z = cmul(z, r);
+		D = cmul(D, r);
+		vec2 f = manti ? r : conj(r);
+		ma = cmul(ma, f);
+		mc = cmul(mc, f);
+		if (ang > 0.5 * sect) {
+			z = cmul(ph, conj(z));
+			D = cmul(ph, conj(D));
+			anti = !anti;
+			par = !par;
+			vec2 g = manti ? conj(ph) : ph;
+			ma = cmul(ma, g);
+			mc = cmul(mc, g);
+			manti = !manti;
+		}
+		vec2 d = z - vec2(x0, 0.0);
+		float r2 = dot(d, d);
+		if (r2 >= rho2) { conv = true; break; }
+		// reflection in the edge: z -> x0 + rho^2 (z - x0) / |z - x0|^2
+		vec2 cd = conj(d);
+		D = -rho2 * cdiv(conj(D), cmul(cd, cd));
+		z = vec2(x0, 0.0) + d * (rho2 / r2);
+		anti = !anti;
+		par = !par;
+		gen++;
+		vec2 na = ma * x0 + mb, nb = -ma - mb * x0;
+		vec2 nc = mc * x0 + md, nd = -mc - md * x0;
+		ma = na; mb = nb; mc = nc; md = nd;
+		manti = !manti;
+		if (e / length(D) < 0.3) break;                   // under a third of a pixel: rim gold
+	}
+	float pxs = 1.0 / length(D);              // pixels per folded unit
+	float tpx = e * pxs;                      // the tile's inradius in pixels
+	if (!conv) tpx = min(tpx, 0.3);`,note:{en:`Rotations, a mirror and reflections in the edge circle fold each pixel into one triangle of the {p,q} tiling while D carries the map's derivative along. At the end 1/|D| turns folded distances into exact screen pixels, so every edge is antialiased analytically with a single sample.`,cs:`Otáčení, zrcadlení a inverze vzhledem ke kružnici hrany složí každý pixel do jediného trojúhelníku dláždění {p,q} a proměnná D přitom nese derivaci celého zobrazení. Na konci výraz 1/|D| převede vzdálenosti ve složených souřadnicích na přesné pixely obrazovky, takže každou hranu stačí vyhladit analyticky jediným vzorkem.`}},{title:{en:`Auto director: finding breakdowns, drops and new sections`,cs:`Automatický režisér: jak pozná breakdown, drop a novou část skladby`},lang:`python`,file:`td/scripts/director.py`,snippet:`	settled = now - S['started'] > 6.0                        # averages need a moment
+	cooldown = now - S['event_at'] > max(6.0, 4 * bar)         # at least 4 bars between changes
+	performer = now - GEST['at'] < max(6.0, 4 * bar)          # a body cue holds the floor as long
+
+	# breaks: no kick for a while, or energy sunk well under the average
+	quiet = now - S['kick_at'] > 1.6 or S['slow'] < S['long'] * (0.5 + 0.25 * sens)
+	min_break = 2.5 - 1.5 * sens
+	if quiet and settled:
+		if S['break_s'] == 0.0:
+			S['ref'] = S['long']                              # how loud the song was before
+		S['break_s'] += dt
+		if S['break_s'] >= min_break:
+			S['armed'] = True
+	elif not quiet:
+		S['break_s'] = max(0.0, S['break_s'] - dt * 2)
+		if S['break_s'] == 0.0:
+			S['calm_done'] = False
+
+	if mode != 'off' and settled:
+		if S['armed'] and S['kick_now'] and S['fast'] > max(S['long'] * 1.05, S['ref'] * (0.75 - 0.25 * sens)):
+			if not performer:          # else the performer already called this drop
+				fire('drop', now)
+			S.update(armed=False, break_s=0.0, calm_done=False, section_wait=False, bars_wait=False)
+		elif S['armed'] and not S['calm_done'] and S['break_s'] > min_break + 2.5 and cooldown:
+			fire('break', now)
+			S['calm_done'] = True
+		else:
+			# a section: energy rising well above the song's average, once per rise,
+			# and not in the 8 bars after a drop (the average is still catching up)
+			ratio = S['slow'] / S['long']
+			if ratio < 1.1:
+				S['rise_ready'] = True
+			if S['rise_ready'] and cooldown and not S['armed'] and now - S['drop_at'] > 8 * bar \\
+					and ratio > 1.5 - 0.3 * sens:
+				S['section_wait'] = True
+				S['rise_ready'] = False
+			if mode == 'bars' and now - S['style_at'] > par('Autobars', 16) * bar:
+				S['bars_wait'] = True
+			if (S['section_wait'] or S['bars_wait']) and cooldown and \\
+					(S['kick_now'] or now - S['kick_at'] > 2.0):
+				fire('section' if S['section_wait'] else 'bars', now)
+				S.update(section_wait=False, bars_wait=False)`,note:{en:`Energy is tracked on three timescales (0.25 s, 1.5 s and a 12 s song average): a long enough quiet stretch arms the director, and the kick that brings the energy back fires the drop. A big rise without a break counts as a new section, but only once at least 6 s and four bars have passed since the last change.`,cs:`Energie se sleduje ve třech časových měřítkách (0,25 s, 1,5 s a dvanáctisekundový průměr skladby): po dostatečně dlouhém ztišení se režisér přepne do pohotovosti a kick, který energii vrátí, spustí drop. Výrazný nárůst bez pauzy znamená novou část skladby, ovšem nejdříve 6 s a zároveň čtyři takty po předchozí změně.`}}],links:[{label:`Cinzel font (SIL OFL 1.1)`,href:`https://github.com/NDISCOVER/Cinzel`}]};export{e as default};

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Doodle Playground</title>
+
+  <!-- A hand-written looking font. If you're offline the page uses Comic Sans instead. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <!-- "defer" = run the script after the page below has been read -->
+  <script src="playground.js" defer></script>
+</head>
+<body>
+
+  <!-- 1. THE PAPER: one big canvas that fills the window. playground.js draws everything on it. -->
+  <canvas id="paper" aria-label="Drawing area. Draw something, then press 2."></canvas>
+
+  <!-- 2. A hidden canvas used only while recording a clip (the video is made from this one) -->
+  <canvas id="rec-canvas" aria-hidden="true"></canvas>
+
+  <!-- 3. Little messages -->
+  <p id="hint">draw something, then press 2</p>
+  <div id="rec" hidden><span class="rec-dot"></span>REC <span id="rec-time">6</span></div>
+  <div id="clip" hidden>
+    clip ready!
+    <button type="button" data-clip="share">share</button>
+    <button type="button" data-clip="save">save</button>
+    <button type="button" data-clip="close" aria-label="Close">x</button>
+  </div>
+  <div id="toast" role="status"></div>
+
+  <!-- 4. HIDDEN SVG HELPERS
+       - Three "boil" filters. The toolbar switches between them ~9 times a second,
+         so its lines shake like a hand-drawn cartoon (the same trick as cat.js).
+       - An empty path that playground.js uses to measure the cat drawing. -->
+  <svg id="svg-tools" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="boil-0" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="1"/>
+        <feDisplacementMap in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="boil-1" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7"/>
+        <feDisplacementMap in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <filter id="boil-2" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="23"/>
+        <feDisplacementMap in="SourceGraphic" scale="3" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <path id="measure" d="M0 0" fill="none"/>
+  </svg>
+
+  <!-- 5. THE TOOLBAR (bottom of the screen). playground.js reads the data-... words
+       to know what each button does. The color buttons are added by playground.js. -->
+  <nav id="toolbar" aria-label="Tools">
+
+    <!-- Tools -->
+    <div class="group">
+      <button type="button" data-tool="pen" title="Pen (P)" aria-label="Pen">
+        <svg viewBox="0 0 24 24"><path d="M4 20 L5.5 14.5 L15.5 4.5 L19.5 8.5 L9.5 18.5 Z M13.5 6.5 L17.5 10.5 M5.5 14.5 L9.5 18.5"/></svg>
+      </button>
+      <button type="button" data-tool="move" title="Move and throw (M) - click a doodle to pick only that one" aria-label="Move">
+        <svg viewBox="0 0 24 24"><path d="M12 3 V21 M3 12 H21 M12 3 L9.5 5.5 M12 3 L14.5 5.5 M12 21 L9.5 18.5 M12 21 L14.5 18.5 M3 12 L5.5 9.5 M3 12 L5.5 14.5 M21 12 L18.5 9.5 M21 12 L18.5 14.5"/></svg>
+      </button>
+      <button type="button" data-tool="eraser" title="Eraser (E) - tap a doodle to poof it" aria-label="Eraser">
+        <svg viewBox="0 0 24 24"><path d="M9 20 L4 15 L14 5 L20 11 L11 20 Z M9 10 L15 16 M11 20 H20"/></svg>
+      </button>
+    </div>
+
+    <!-- Colors (added by playground.js) and brush size -->
+    <div class="group" id="swatches">
+      <button type="button" data-action="size" title="Brush size ( [ and ] )" aria-label="Brush size">
+        <span class="dot"></span>
+      </button>
+    </div>
+
+    <!-- Bring to life -->
+    <div class="group">
+      <button type="button" data-mode="wiggle" title="1: Wiggle" aria-label="Wiggle">
+        <svg viewBox="0 0 24 24"><path d="M3 13 Q6 5 9 12 T15 12 T21 11 M6 19 L8 20.5 M16 19 L14 20.5"/></svg>
+        <span class="key">1</span>
+      </button>
+      <button type="button" data-mode="bounce" title="2: Bounce" aria-label="Bounce">
+        <svg viewBox="0 0 24 24"><path d="M3 21 H21"/><circle cx="14.5" cy="15.5" r="3.5"/><path d="M4 8 Q7 2 10.5 10" stroke-dasharray="2 3"/></svg>
+        <span class="key">2</span>
+      </button>
+      <button type="button" data-mode="float" title="3: Float" aria-label="Float">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="9" rx="5.5" ry="6.5"/><path d="M12 15.5 L11 17 H13 Z M12 17 Q10 19.5 12.5 22"/></svg>
+        <span class="key">3</span>
+      </button>
+      <button type="button" data-mode="walk" title="4: Walk" aria-label="Walk">
+        <svg viewBox="0 0 24 24"><path d="M2 20 Q5.5 10 9 20 Q12.5 10 16 20" stroke-dasharray="2 3"/><rect x="16.5" y="9" width="5" height="11" rx="2.5"/></svg>
+        <span class="key">4</span>
+      </button>
+      <button type="button" data-mode="still" title="5: Freeze" aria-label="Freeze">
+        <svg viewBox="0 0 24 24"><path d="M12 3 V21 M4.2 7.5 L19.8 16.5 M4.2 16.5 L19.8 7.5 M12 3 L10 5 M12 3 L14 5 M12 21 L10 19 M12 21 L14 19"/></svg>
+        <span class="key">5</span>
+      </button>
+    </div>
+
+    <!-- Make and fix -->
+    <div class="group">
+      <button type="button" data-action="cat" title="Stamp a cat (C)" aria-label="Stamp a cat">
+        <svg viewBox="0 0 24 24"><path d="M5 20 Q4 13 5 4 L9.5 8 Q12 7.2 14.5 8 L19 4 Q20 13 19 20 Q12 22.5 5 20 Z M9 13 V13.1 M15 13 V13.1 M10.5 16 Q12 17.5 13.5 16"/></svg>
+      </button>
+      <button type="button" data-action="undo" title="Undo (Ctrl+Z)" aria-label="Undo">
+        <svg viewBox="0 0 24 24"><path d="M9 5 L4 10 L9 15 M4 10 H14 Q20 10 20 15.5 Q20 20 15 20 H11"/></svg>
+      </button>
+      <button type="button" data-action="clear" title="Clear all" aria-label="Clear all">
+        <svg viewBox="0 0 24 24"><path d="M4 7 H20 M9 7 V4 H15 V7 M6 7 L7.5 20 H16.5 L18 7 M10 11 V16 M14 11 V16"/></svg>
+      </button>
+    </div>
+
+    <!-- Save and share -->
+    <div class="group">
+      <button type="button" data-action="save" title="Save a picture (Ctrl+S)" aria-label="Save picture">
+        <svg viewBox="0 0 24 24"><path d="M12 4 V15 M7 10.5 L12 15.5 L17 10.5 M4 16 V20 H20 V16"/></svg>
+      </button>
+      <button type="button" data-action="frame" title="9:16 frame for Reels / TikTok (9)" aria-label="9:16 frame">
+        <span class="label">9:16</span>
+      </button>
+      <button type="button" data-action="record" title="Record a clip (R)" aria-label="Record a clip">
+        <svg viewBox="0 0 24 24"><circle class="rec-circle" cx="12" cy="12" r="6.5"/><rect class="rec-stop" x="7" y="7" width="10" height="10" rx="2"/></svg>
+      </button>
+    </div>
+
+  </nav>
+</body>
+</html>

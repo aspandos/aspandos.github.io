@@ -1,0 +1,130 @@
+{
+  "duration": 48.7,
+  "bpm": 91,
+  "segments": [
+    {
+      "project": "ruins",
+      "t": 1.2
+    },
+    {
+      "project": "liquid",
+      "t": 3.833
+    },
+    {
+      "project": "anima",
+      "t": 6.467
+    },
+    {
+      "project": "night-drive",
+      "t": 9.1
+    },
+    {
+      "project": "forest-fairy",
+      "t": 11.733
+    },
+    {
+      "project": "ai3d-forge",
+      "t": 13.067
+    },
+    {
+      "project": "doodle-playground",
+      "t": 14.4
+    },
+    {
+      "project": "av-control",
+      "t": 15.7
+    },
+    {
+      "project": "relax-reel",
+      "t": 17.033
+    },
+    {
+      "project": "banana-heaven",
+      "t": 18.333
+    },
+    {
+      "project": "fish-weather",
+      "t": 19.667
+    },
+    {
+      "project": "bad-karma",
+      "t": 20.967
+    },
+    {
+      "project": "audiovj",
+      "t": 22.3
+    },
+    {
+      "project": "liquid",
+      "t": 24.933
+    },
+    {
+      "project": "ruins",
+      "t": 26.267
+    },
+    {
+      "project": "night-drive",
+      "t": 27.567
+    },
+    {
+      "project": "audiovisualizer",
+      "t": 28.9
+    },
+    {
+      "project": "bad-karma",
+      "t": 30.2
+    },
+    {
+      "project": "triad",
+      "t": 31.533
+    },
+    {
+      "project": "perspectiva",
+      "t": 32.833
+    },
+    {
+      "project": "anima",
+      "t": 35.5
+    },
+    {
+      "project": "fish-weather",
+      "t": 36.8
+    },
+    {
+      "project": "audiovisualizer",
+      "t": 38.133
+    },
+    {
+      "project": "banana-heaven",
+      "t": 39.433
+    },
+    {
+      "project": "triad",
+      "t": 40.767
+    },
+    {
+      "project": "liquid",
+      "t": 41.433
+    },
+    {
+      "project": "audiovisualizer",
+      "t": 42.067
+    },
+    {
+      "project": "ruins",
+      "t": 42.733
+    },
+    {
+      "project": "audiovj",
+      "t": 43.4
+    },
+    {
+      "project": "perspectiva",
+      "t": 44.7
+    }
+  ],
+  "credits": {
+    "en": "Music: 'Stoned and Alone' by Aspandiyar Kurman",
+    "cs": "Hudba: „Stoned and Alone“, Aspandiyar Kurman"
+  }
+}

@@ -1,4 +1,4 @@
-import{a as e,n as t,t as n}from"./jsx-runtime-Wy9s6hX0.js";import{B as r}from"./index-Bly79r5p.js";var i=e(t(),1),a=n(),o=[`bursts`,`stars`,`shards`,`cosmos`,`rainbow`,`swirl`,`glitter`,`gold`],s=1100,c=63/88,l=`#version 300 es
+import{a as e,n as t,t as n}from"./jsx-runtime-Wy9s6hX0.js";import{W as r}from"./index-CxD2MCSD.js";var i=e(t(),1),a=n(),o=[`bursts`,`stars`,`shards`,`cosmos`,`rainbow`,`swirl`,`glitter`,`gold`],s=1100,c=63/88,l=`#version 300 es
 in vec2 position;
 void main() {
   gl_Position = vec4(position, 0.0, 1.0);

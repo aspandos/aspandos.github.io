@@ -1,0 +1,1 @@
+import{a as e,i as t,n,r,t as i}from"./layout-CLX5xCaE.js";var a=Object.assign({},Object.assign({renderer:e},t,n),r,i);export{a as default};

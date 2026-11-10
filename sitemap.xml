@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://aspandos.github.io/</loc></url>
   <url><loc>https://aspandos.github.io/work/</loc></url>
-  <url><loc>https://aspandos.github.io/gallery/</loc></url>
   <url><loc>https://aspandos.github.io/tools/</loc></url>
   <url><loc>https://aspandos.github.io/automation/</loc></url>
   <url><loc>https://aspandos.github.io/assistant/</loc></url>
@@ -23,7 +22,5 @@
   <url><loc>https://aspandos.github.io/work/dumb-head/</loc></url>
   <url><loc>https://aspandos.github.io/work/fish-weather/</loc></url>
   <url><loc>https://aspandos.github.io/work/slowly/</loc></url>
-  <url><loc>https://aspandos.github.io/work/perspectiva/</loc></url>
-  <url><loc>https://aspandos.github.io/work/triad/</loc></url>
   <url><loc>https://aspandos.github.io/work/portfolio-site/</loc></url>
 </urlset>

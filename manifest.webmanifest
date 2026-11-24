@@ -1,7 +1,7 @@
 {
-  "name": "Aspandiyar Kurman – Creative Technologist",
+  "name": "Aspandiyar Kurman – AI Automation & Creative Technologist",
   "short_name": "AK HQ",
-  "description": "Real-time 3D, game dev, motion and audio-reactive visuals.",
+  "description": "AI automation in n8n and with the Claude API: live demos you can try, case studies and a one-page CV.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
